@@ -1,4 +1,4 @@
-# vue-eslint-demo
+# message-tree
 
 ## Project setup
 ```
@@ -15,9 +15,9 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Test 
 ```
-npm run lint
+npm run test
 ```
 
 ### Customize configuration
