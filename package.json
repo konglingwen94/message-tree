@@ -1,13 +1,17 @@
 {
   "name": "message-tree",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./lib/message-tree.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --dest lib ./src/main.js",
     "test": "vue-cli-service serve test/main.js"
   },
-  "files":["lib","README.md","public"],
+  "files": [
+    "lib",
+    "README.md",
+    "public"
+  ],
   "dependencies": {
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
