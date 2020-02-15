@@ -1,8 +1,28 @@
 import Vue from 'vue'
-import App from './App.vue'
+import { Avatar, Button, Divider, Input ,Form,FormItem} from 'element-ui'
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
+import MessageGroup from './components/message-group'
+import MessageItem from './components/message-item'
+import MessageTree from './main.vue'
+// import 'element-ui/lib/theme-chalk/index.css'
 
-Vue.config.productionTip = false
+Vue.component(CollapseTransition.name, CollapseTransition)
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Vue.use(Avatar)
+// Vue.use(InputNumber)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Button)
+Vue.use(Divider)
+
+Vue.component(MessageGroup.name, MessageGroup)
+Vue.component(MessageItem.name, MessageItem)
+
+console.dir(Vue)
+
+MessageTree.install = function(Vue) {
+  Vue.component(MessageTree.name, MessageTree)
+}
+
+export default MessageTree
