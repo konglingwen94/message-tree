@@ -71,10 +71,24 @@ export default {
   },
   data() {
     return {
-      isExpanded: this.$messageTree.expandLayer>this.level
+      isExpanded: this.$messageTree.expandLayer > this.level,
+      hasEditor: false
     }
   },
-
+  mounted() {
+    const self = this
+    this.$refs.editorContainer.addEventListener('DOMNodeInserted', function(e) {
+      if (e.target === self.$editor && e.relatedNode === this) {
+        self.hasEditor = true
+      }
+    })
+    this.$refs.editorContainer.addEventListener('DOMNodeRemoved', function(e) {
+      
+      if (e.target === self.$editor && e.relatedNode === this) {
+        self.hasEditor = false
+      }
+    })
+  },
   filters: {
     dateFormat
   },
@@ -112,16 +126,26 @@ export default {
       this.$emit('load-more', payload)
     },
     thumbClicked(item) {
-      this.$messageTree.$emit('thumb-clicked', item)
+      this.$messageTree.$emit('on-thumbup', item)
     },
     replyHandler() {
       if (!this.$refs.editorContainer.contains(this.$editor)) {
+        this.$messageTree.showEditor()
         this.$refs.editorContainer.appendChild(this.$editor)
-        this.$messageTree.showEditor = true
       }
-      this.$nextTick(() => {
-        this.$messageTree.$refs.textarea.focus()
-      })
+
+      if (this.$messageTree.editorType === 'default') {
+        this.$nextTick(() => {
+          this.$messageTree.$refs.textarea.focus()
+        })
+      } else {
+        const payload = {
+          ...this.data
+        }
+
+        delete payload.children
+        this.$messageTree.$emit('on-reply', payload)
+      }
     },
     toggleExpandPanel() {
       this.isExpanded = !this.isExpanded

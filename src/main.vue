@@ -1,20 +1,16 @@
 <template>
   <div class="message-tree">
-    <div class="editor-wrapper" ref="editorEl" v-show="showEditor">
+    <div class="editor-wrapper" ref="editorEl" v-show="editorVisible">
       <slot name="editor">
-       
-        <el-input   ref="textarea" :type="Texttype" resize="vertical">
+        <el-input ref="textarea" :type="Texttype" resize="vertical">
           <el-button slot="append">Submit</el-button>
         </el-input>
-         
-         
       </slot>
     </div>
     <message-group :dataList="renderData"></message-group>
   </div>
 </template>
 <script>
- 
 import MessageEditor from './components/message-editor'
 import MessageGroup from './components/message-group'
 import { normalizeData as normalize } from './util'
@@ -27,12 +23,14 @@ export default {
   },
   data() {
     return {
-      showEditor: false,
-     Texttype:'text'
+      editorVisible: false,
+      Texttype: 'text'
     }
   },
 
-  
+  mounted() {
+   
+  },
 
   provide() {
     const provided = { $messageTree: this }
@@ -84,11 +82,11 @@ export default {
     removeEditor() {
       this.$refs.editorEl.remove()
     },
-    closeEditor() {
-      this.showEditor = false
+    hideEditor() {
+      this.editorVisible = false
     },
-    openEditor() {
-      this.showEditor = true
+    showEditor() {
+      this.editorVisible = true
     }
   }
 }
