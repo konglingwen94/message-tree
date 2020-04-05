@@ -10,8 +10,6 @@ General use comments list component based on Vue
 
 ![message-tree](/screenshots/1.gif)![message-tree](/screenshots/2.gif)
 
-
-
 ## Install
 
 ```
@@ -34,7 +32,7 @@ Vue.use(MessageTree)
 ```HTML
 <template>
   <div class="message-container">
-    <message-tree></message-tree>
+    <message-tree :data-list="dataList"></message-tree>
   </div>
 
 </template>
