@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath:'./',
   lintOnSave:'warning',
   runtimeCompiler: true,
   css: { extract: false },
