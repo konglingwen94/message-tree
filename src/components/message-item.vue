@@ -135,7 +135,7 @@ export default {
 
       if (this.$messageTree.editorType === 'default') {
         this.$nextTick(() => {
-          this.$messageTree.$refs.textarea.focus()
+          // this.$messageTree.$refs.textarea.focus()
         })
       } else {
         const payload = {

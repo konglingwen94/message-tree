@@ -13,6 +13,7 @@
     "public"
   ],
   "dependencies": {
+    "comment-message-editor": "^1.0.1",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
     "vue": "^2.6.11"

@@ -2,9 +2,7 @@
   <div class="message-tree">
     <div class="editor-wrapper" ref="editorEl" v-show="editorVisible">
       <slot name="editor">
-        <el-input ref="textarea" :type="Texttype" resize="vertical">
-          <el-button slot="append">Submit</el-button>
-        </el-input>
+        <comment-editor></comment-editor>
       </slot>
     </div>
     <message-group :dataList="renderData"></message-group>
@@ -28,9 +26,7 @@ export default {
     }
   },
 
-  mounted() {
-   
-  },
+  
 
   provide() {
     const provided = { $messageTree: this }

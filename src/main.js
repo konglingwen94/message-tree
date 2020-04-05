@@ -5,12 +5,13 @@ import MessageGroup from './components/message-group'
 import MessageItem from './components/message-item'
 import MessageTree from './main.vue'
 // import 'element-ui/lib/theme-chalk/index.css'
+import CommentEditor from 'comment-message-editor'
 
  
 
 MessageTree.install = function(Vue) {
   Vue.component(CollapseTransition.name, CollapseTransition)
-
+  Vue.component(CommentEditor.name, CommentEditor)
   Vue.use(Avatar)
   // Vue.use(InputNumber)
   Vue.use(Form)
