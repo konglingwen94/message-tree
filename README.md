@@ -85,17 +85,7 @@ export default {
             "id": "5e785600ffbc160b9c2d309a",
             "children": []
           },
-          {
-            "thumbupCount": 0,
-            "email": "email@sina.com",
-            "nickname": "昵称1",
-            "content": "这是一条@昵称的回复",
-            "parentID": "5e7855e9ffbc160b9c2d3099",
-            "createdAt": "2020-03-23T06:24:08.304Z",
-            "updatedAt": "2020-03-23T06:24:08.304Z",
-            "id": "5e785608ffbc160b9c2d309b",
-            "children": []
-          }
+          
         ]
       }
     ]
