@@ -32,7 +32,10 @@ Vue.use(MessageTree)
 ```HTML
 <template>
   <div class="message-container">
-    <message-tree :data-list="dataList"></message-tree>
+    <message-tree :data-list="dataList">
+      <!-- default slots of comment-editor -->
+
+    </message-tree>
   </div>
 
 </template>
