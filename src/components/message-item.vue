@@ -40,9 +40,9 @@
         <div class="editor-container" ref="editorContainer"></div>
       </div>
     </dt>
-    <el-divider v-if="level===1"></el-divider>
+    <!-- <el-divider v-if="level===1"></el-divider> -->
     <el-collapse-transition>
-      <dd v-show="isExpanded" v-if="replyCount" ref="messageTreeContainer">
+      <dd class="reply-container" v-show="isExpanded" v-if="replyCount" ref="messageTreeContainer">
         <message-group :dataList="data.children"></message-group>
         <!-- <div class="loading-more" @click="loadMore" v-if="replyCount>=1">查看更多</div> -->
       </dd>
@@ -83,7 +83,6 @@ export default {
       }
     })
     this.$refs.editorContainer.addEventListener('DOMNodeRemoved', function(e) {
-      
       if (e.target === self.$editor && e.relatedNode === this) {
         self.hasEditor = false
       }
@@ -144,7 +143,7 @@ export default {
         }
 
         delete payload.children
-        this.$messageTree.$emit('on-reply', payload)
+      this.$messageTree.$emit('on-reply', payload)
       }
     },
     toggleExpandPanel() {
@@ -182,7 +181,11 @@ dt {
     }
   }
 }
-
+dd.reply-container {
+  background: #fafbfc;
+  padding: 20px;
+  margin-top: 20px;
+}
 .loading-more {
   user-select: none;
   text-align: center;
