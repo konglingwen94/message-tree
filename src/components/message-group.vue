@@ -9,19 +9,17 @@
 </template>
 <script>
 export default {
-  name: 'MessageGroup',
+  name: "MessageGroup",
   props: {
     dataList: {
       type: Array,
       default: []
     }
   }
-}
+};
 </script>
 
-
-
-<style    >
+<style>
 ul,
 li {
   list-style: none;
